@@ -67,7 +67,7 @@ class TogetherAIHandler:
             )
             return intent
         except Exception as e:
-            self._logger.error(f"[AIHandler] Intent classification failed: {str(e)}")
+            self._logger._logger.error(f"[AIHandler] Intent classification failed: {str(e)}")
             return None
 
     def respond_product_info(
@@ -78,7 +78,6 @@ class TogetherAIHandler:
             available_products: str
     ) -> str:
         if intent == "other":
-            print("otherdayım")
             return """
             Sorduğunuz soruya maalesef cevap veremeyeceğim. Yardımcı olabileceğim konular:
             - stok durumu
