@@ -50,3 +50,24 @@ CREATE TABLE IF NOT EXISTS product_inventory (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+
+CREATE TABLE IF NOT EXISTS events_ai (
+    id SERIAL PRIMARY KEY,
+    user_prompt TEXT NOT NULL,
+    tokens_used INT,
+    model_response TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE IF NOT EXISTS events_api (
+    id SERIAL PRIMARY KEY,
+    endpoint TEXT NOT NULL,
+    method TEXT NOT NULL,
+    status_code INT,
+    request_payload JSONB,
+    response_payload JSONB,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+

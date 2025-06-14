@@ -13,7 +13,27 @@ services:
       - "5433:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - ../init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+
+  api:
+    build:
+      context: ..        # go up to project root
+      dockerfile: Dockerfile   # Dockerfile at project root
+    container_name: trendyol_api
+    restart: always
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: trendyol_user
+      DB_PASSWORD: trendyol_pass
+      DB_NAME: trendyol_db
+    volumes:
+      - ../:/app       # mount project root as /app inside container
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 
 volumes:
   pgdata:
