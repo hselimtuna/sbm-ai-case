@@ -1,4 +1,4 @@
-# Trendyol Product Info API
+# E-Commerce AI Agent API
 
 Bu proje, Trendyol ürün bilgilerini yönetmek ve kullanıcıların ürünlerle ilgili sorgularına yanıt vermek üzere tasarlanmış bir FastAPI tabanlı backend uygulamasıdır.  
 API, ürün sorgularını doğal dil işleme (LLM) ile analiz edip yanıt verirken, arka planda Trendyol’dan düzenli olarak ürün verisi çekip PostgreSQL veritabanına kaydeder.
